@@ -16,10 +16,11 @@ $credentials = [
 Client::authenticateSso($credentials);
 
 # for redirect to sso login page
+# origin https://<your-website>/<method for save session)
 $credentials = [
     'appid' => 'YOUR_APPID',
     'appsecret' => 'YOUR_APPSECRET',
-    'origin' => 'https://your-website.com',
+    'origin' => 'https://your-website.com/loginhelper',
 ];
 Client::redirectToSso($credentials);
 
