@@ -24,7 +24,7 @@ $credentials = [
 Client::redirectToSso($credentials);
 ```
 
-### Installing Guzzle
+### Installing ssoclient
 The recommended way to install ssoclient is through [Composer](http://getcomposer.org/).
 ```bash
 # Install Composer
@@ -33,10 +33,11 @@ curl -sS https://getcomposer.org/installer | php
 
 Next, run the Composer command to install the latest stable version of ssoclient:
 ```bash
+composer init
 composer require bows/ssoclient
 ```
 
-After installing, you need to require Composer's autoloader:
+Then create an index.php file that will load the autoloader:
 ```php
 require 'vendor/autoload.php';
 ```
