@@ -1,0 +1,25 @@
+{
+    "name": "bows/ssoclient",
+    "description": "small library to connect sso",
+    "keywords": ["sso", "composer", "package"],
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "abuabbas",
+            "email": "notificationfor.gitlabs@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=5.3",
+        "vlucas/phpdotenv": "^3.3"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SsoClient\\": "src/"
+        }
+    } 
+}
