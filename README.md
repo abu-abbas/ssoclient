@@ -1,11 +1,11 @@
 # ssoclient
 small library to connect sso
 ```php
-require_once 'vendor/autoload.php';
+
 use SsoClient\Client;
 
 # for register new app
-echo Client::registerApp('YOUR_APPNAME', 'YOUR_APPKEY');
+Client::registerApp('YOUR_APPNAME', 'YOUR_APPKEY');
 
 # for authenticate token
 $credentials = [
@@ -22,6 +22,7 @@ $credentials = [
     'origin' => 'https://your-website.com',
 ];
 Client::redirectToSso($credentials);
+
 ```
 
 ### Installing ssoclient
