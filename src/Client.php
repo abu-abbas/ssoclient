@@ -5,21 +5,20 @@ namespace SsoClient;
 use SsoClient\CurlLibs;
 
 /**
-*  A sample class
+*  This is the client class.
 *
-*  Use this section to define what this class is doing, the PHPDocumentator will use this
-*  to automatically generate an API documentation using this information.
+*  It's responsible for handling client function
 *
 *  @author abuabbas
 */
 class Client 
 {
    /**
-    * Undocumented function
+    * This function for register sso client
     *
     * @param string $appName
     * @param string $secretKey
-    * @return void
+    * @return object
     */
    public static function registerApp(string $appName, string $secretKey)
    {
@@ -37,10 +36,10 @@ class Client
    }
 
    /**
-    * Undocumented function
+    * This function for authenticate token
     *
     * @param array $credentials
-    * @return void
+    * @return object
     */
    public static function authenticateSso(array $credentials)
    {
@@ -59,7 +58,7 @@ class Client
    }
 
    /**
-    * Undocumented function
+    * This function for rediret to sso login page
     *
     * @param array $credentials
     * @return void

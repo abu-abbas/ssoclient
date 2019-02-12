@@ -2,19 +2,64 @@
 
 namespace SsoClient;
 
+/**
+ * This is the curllibs class.
+ * 
+ * It's responsible for handling curl function
+ */
 class CurlLibs
 {
+    /**
+     * The url storage
+     *
+     * @var string
+     */
     private $url;    
-    private $curl;    
-    private $data;    
-    private $config;
-    private $method = ['GET', 'POST', 'PUT', 'DELETE'];
 
+    /**
+     * The curl instance
+     *
+     * @var curl_init()
+     */
+    private $curl;    
+
+    /**
+     * The data storage
+     *
+     * @var array
+     */
+    private $data;    
+
+    /**
+     * The config storage
+     *
+     * @var array
+     */
+    private $config;
+
+    /**
+     * The method filter
+     *
+     * @var array
+     */
+    private $method = ['GET', 'POST'];
+
+    /**
+     * Create curl instance
+     * 
+     * @return void
+     */
     public function __construct()
     {   
         $this->curl = curl_init();
     }
 
+    /**
+     * Setting curl option
+     *
+     * @param array $options
+     * @return CurlLibs
+     */
     public function setOptions(array $options = [])
     {
         if (getenv('USE_PROXY')) $default['CURLOPT_PROXY'] = getenv('HTTP_PROXY');
@@ -27,11 +72,22 @@ class CurlLibs
         return $this;
     }
 
+    /**
+     * generate url endpoints with method
+     *
+     * @param string $uri
+     * @return string
+     */
     public function getUrl(string $uri = '')
     {
         return sprintf('%s/%s', getenv('API_ENDPOINT'), $uri);
     }
 
+    /**
+     * Execute curl function
+     *
+     * @return CurlLibs
+     */
     public function run()
     {
         try {
@@ -46,6 +102,14 @@ class CurlLibs
         }
     }
 
+    /**
+     * Make a curl request
+     *
+     * @param string $method
+     * @param string $uri
+     * @param array $data
+     * @return CurlLibs
+     */
     public function request(string $method, string $uri, array $data = [])
     {
         if (in_array($method, $this->method)) {
